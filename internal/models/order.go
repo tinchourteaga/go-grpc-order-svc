@@ -6,3 +6,9 @@ type Order struct {
 	ProductId int64 `json:"product_id"`
 	UserId    int64 `json:"user_id"`
 }
+
+type OrderReqInfo struct {
+	ProductId int64 `json:"product_id"`
+	Quantity  int64 `json:"quantity"`
+	UserId    int64 `json:"user_id"`
+}
