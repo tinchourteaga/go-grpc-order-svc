@@ -5,7 +5,7 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
-	"github.com/tinchourteaga/go-grpc-order-svc/internal/pb"
+	pb "github.com/tinchourteaga/go-grpc-order-svc/internal/pb/product"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

@@ -1,6 +1,6 @@
 syntax = "proto3";
 package order;
-option go_package = "./internal/pb";
+option go_package = "./internal/pb/order";
 
 service OrderService {
   rpc CreateOrder(CreateRequest) returns (CreateResponse) {}
