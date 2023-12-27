@@ -18,7 +18,7 @@ func NewOrder(svc Service) *Order {
 	}
 }
 
-func (o *Order) Create(ctx context.Context, req *pb.CreateRequest) (*pb.CreateResponse, error) {
+func (o *Order) CreateOrder(ctx context.Context, req *pb.CreateRequest) (*pb.CreateResponse, error) {
 	orderReqInfo := models.OrderReqInfo{
 		ProductId: req.ProductId,
 		Quantity:  req.Quantity,
