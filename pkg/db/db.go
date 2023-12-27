@@ -3,6 +3,7 @@ package db
 import (
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
+	"github.com/tinchourteaga/go-grpc-order-svc/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -17,7 +18,7 @@ func NewDatabaseConnection() Connector {
 		log.Fatal().Msg("cannot connect to database")
 	}
 
-	//db.AutoMigrate(&models.Product{}, &models.StockDecreaseLog{})
+	db.AutoMigrate(&models.Order{})
 
 	return Connector{DB: db}
 }
