@@ -16,9 +16,10 @@ type service struct {
 	productClient client.ProductServiceClient
 }
 
-func NewService(repo Repository) Service {
+func NewService(repo Repository, prodClient client.ProductServiceClient) Service {
 	return &service{
-		repository: repo,
+		repository:    repo,
+		productClient: prodClient,
 	}
 }
 

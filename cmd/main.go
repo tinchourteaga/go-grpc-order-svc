@@ -6,6 +6,7 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
+	"github.com/tinchourteaga/go-grpc-order-svc/internal/client"
 	"github.com/tinchourteaga/go-grpc-order-svc/internal/order"
 	pb "github.com/tinchourteaga/go-grpc-order-svc/internal/pb/order"
 	"github.com/tinchourteaga/go-grpc-order-svc/pkg/config"
@@ -27,8 +28,11 @@ func main() {
 
 	grpcServer := grpc.NewServer()
 	connector := db.NewDatabaseConnection()
+	productClient := client.ProductServiceClient{
+		Client: client.NewProductServiceClient(),
+	}
 	repo := order.NewRepository(connector)
-	service := order.NewService(repo)
+	service := order.NewService(repo, productClient)
 	handler := order.NewOrder(service)
 
 	fmt.Println("Auth service listening on: " + viper.GetString("PORT"))
